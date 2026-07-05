@@ -1,0 +1,551 @@
+/* src/styles.css */
+/* Layout & komponen mengikuti gaya Uniswap V2 asli, warna disesuaikan ke tema
+   navy/cyan. Tidak ada animasi/efek gerak sama sekali. */
+
+:root {
+  --bg: #0b1622;
+  --nav-bg: #0b1622;
+  --card-bg: #101d2c;
+  --input-bg: #16283c;
+  --input-bg-hover: #1c3148;
+  --border: #1f3348;
+
+  --text: #eef3f8;
+  --text-muted: #7b8ba0;
+
+  --cyan: #35c3e8;
+  --cyan-dark: #1f9bbd;
+  --green: #34d399;
+  --red: #f2555a;
+
+  --radius-card: 20px;
+  --radius-box: 16px;
+  --radius-pill: 20px;
+
+  --font-ui: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------- Top nav (gaya Uniswap V2) ---------------- */
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topnav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-link.active {
+  color: var(--text);
+  background: var(--input-bg);
+}
+
+.network-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.network-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.network-dot.wrong {
+  background: var(--red);
+}
+
+.topnav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-connect {
+  background: var(--cyan);
+  color: #06141f;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-connect:hover {
+  background: var(--cyan-dark);
+}
+
+.addr-chip {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+}
+
+/* ---------------- Page wrapper ---------------- */
+
+.page {
+  display: flex;
+  justify-content: center;
+  padding: 64px 16px;
+}
+
+/* ---------------- Card utama (persis pola Uniswap V2) ---------------- */
+
+.uni-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 16px;
+}
+
+.uni-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px 12px;
+}
+
+.uni-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+/* ---------------- Token input box (gaya Uniswap V2) ---------------- */
+
+.io-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.io-box {
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-box);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.io-box:hover {
+  border-color: var(--border);
+}
+
+.io-box-toprow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.io-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.io-mainrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.io-amount {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: var(--font-ui);
+}
+
+.io-amount::placeholder {
+  color: var(--text-muted);
+}
+
+.token-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 10px 7px 8px;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.token-pill:hover {
+  background: var(--input-bg-hover);
+}
+
+.token-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: #06141f;
+  font-size: 11px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.io-bottomrow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.max-btn {
+  background: none;
+  border: none;
+  color: var(--cyan);
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Tombol arrow bulat yang overlap di antara 2 box (signature Uniswap) */
+
+.arrow-divider {
+  display: flex;
+  justify-content: center;
+  height: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.arrow-btn {
+  position: relative;
+  top: -14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  border: 4px solid var(--card-bg);
+  outline: 1px solid var(--border);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow-btn:hover {
+  background: var(--input-bg-hover);
+}
+
+.plus-divider {
+  display: flex;
+  justify-content: center;
+  margin: 2px 0;
+}
+
+.plus-icon {
+  color: var(--text-muted);
+}
+
+/* ---------------- Detail panel (rate, fee, dst) ---------------- */
+
+.details-panel {
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.detail-row .val {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* ---------------- Main action button ---------------- */
+
+.action-btn {
+  width: 100%;
+  margin-top: 4px;
+  padding: 16px;
+  border-radius: var(--radius-box);
+  border: none;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--cyan);
+  color: #06141f;
+}
+
+.action-btn:hover:not(:disabled) {
+  background: var(--cyan-dark);
+}
+
+.action-btn:disabled {
+  background: var(--input-bg);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+/* ---------------- Sub nav Pool (Add / Remove) ---------------- */
+
+.subnav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.subnav button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.subnav button.active {
+  color: var(--text);
+  border-bottom-color: var(--cyan);
+}
+
+/* ---------------- Pool info box ---------------- */
+
+.pool-info {
+  background: var(--input-bg);
+  border-radius: var(--radius-box);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.pool-info .row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+}
+
+.pool-info .row .val {
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* ---------------- Slider (slippage & percent) ---------------- */
+
+.slippage-panel {
+  background: var(--input-bg);
+  border-radius: var(--radius-box);
+  padding: 14px 16px;
+  margin-bottom: 4px;
+}
+
+.slippage-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.slippage-options {
+  display: flex;
+  gap: 8px;
+}
+
+.slippage-options button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.slippage-options button.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--cyan);
+}
+
+/* ---------------- Alerts ---------------- */
+
+.alert {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.alert-error {
+  background: rgba(242, 85, 90, 0.08);
+  border-color: rgba(242, 85, 90, 0.3);
+  color: #ff9d9f;
+}
+
+.alert-warn {
+  background: rgba(245, 183, 60, 0.08);
+  border-color: rgba(245, 183, 60, 0.3);
+  color: #f5b73c;
+}
+
+.alert-success {
+  background: rgba(52, 211, 153, 0.08);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: var(--green);
+}
+
+.footer-note {
+  max-width: 420px;
+  margin: 18px auto 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 480px) {
+  .topnav {
+    padding: 12px 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .topnav-left {
+    gap: 14px;
+  }
+  .brand-name {
+    font-size: 16px;
+  }
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+  .network-pill {
+    display: none;
+  }
+  .page {
+    padding: 20px 10px;
+  }
+  .io-amount {
+    font-size: 22px;
+  }
+}
